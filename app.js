@@ -25,10 +25,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 
+
+// --------------------------------------- 手动添加代理路径 --------------------------------
+
 let Portal = require('./proxy/Portal');
 app.use('/Portal', Portal);
 let user = require('./proxy/user');
 app.use('/user', user);
+
+// --------------------------------------- ----------------- --------------------------------
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

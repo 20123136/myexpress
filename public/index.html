@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<button onclick="ivr()">IVR</button><br><br>
+<button onclick="ivr2()">IVR2</button><br><br>
+</body>
+</html>
+
+<script src="javascripts/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+
+    function ivr() {
+        $.ajax({
+            type: "post",
+            url: "http://172.16.0.11:8093/Portal/Resource/Voices",
+            data: {"page":0,"size":15,"no":"", "name": "欢迎语3", "sort": "lastUpdateTime,desc"},
+            dataType: "json",
+            success: function (response, status) {
+                alert(response.returnCode);
+            },
+        })
+    }
+
+    function ivr2() {
+        $.ajax({
+            type: "post",
+            url: "/Portal/Resource/Voices",
+            data: {"page":0,"size":15,"no":"", "name": "欢迎语3", "sort": "lastUpdateTime,desc"},
+            dataType: "json",
+            success: function (response, status) {
+                alert(response.returnCode);
+            },
+        })
+    }
+</script>
